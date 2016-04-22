@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" ng-app="skmYoutubeBlog">
+<head>
+  <meta charset="UTF-8">
+  <title>SKM YoutubePlayer</title>
+
+  <!-- jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <!-- AngularJS -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+
+	<!-- mCustomScrollbar -->
+	<link rel="stylesheet" href="style/jquery.mCustomScrollbar.css" />
+	<script src="js/jquery.mCustomScrollbar.min.js"></script>
+
+  <!-- App related -->
+  <link rel="stylesheet" href="style/style.css" />
+	<script src="js/app.js"></script>
+
+</head>
+<body>
+
+<div id="header"></div>
+
+<div id="wrapper" ng-controller="MainCtrl" ng-init="searchVideos(true)">
+
+	<!-- Logo -->
+	<img id="logo" src="style/logo.png" title="skmTube Logo">
+	<a id="twitter" target="_blank" href="http://twitter.com/SKmanter">@skmanter</a>
+  <a id="article" target="_blank" href="http://www.facebook.com/sed9i.Tictac">My facebook </a>
+
+	<!-- Dailymotion player -->
+	<div id="playerArea">
+
+			<div id="divPlayer">
+				<iframe id="player" width="500" height="300" frameborder="0" ng-src="{{getVideoUrl()}}" allowfullscreen></iframe>
+			</div>
+			<div id="menu" >
+				  <a href="#" class="action-button shadow animate red" ng-click="addToPlayList()">Add to playlist ></a>
+			</div>
+			<div id="playListArea" ng-cloak scrollable>
+        		<div class="title truncateLine" ng-repeat="video in playlist">{{video['snippet'].title}} 
+        			<div class="alert-close" ng-click="removefromPlaylist(video)">×</div>
+        		</div>
+			</div>
+	</div>
+
+
+	<!-- download mp3	<a href="http://www.yt-mp3.com/watch?v=vCp5JLnd1Eo" onClick="return YoutubeMp3Script(this)">Download MP3</a> -->
+
+
+	<!-- Searchbar -->
+	<div id="searchbarArea">
+		<input type="text" ng-model="searchTerms" placeholder="Search on Youtube..." ng-change="searchVideos(true)" ng-click="searchTerms=''" autofocus>
+	</div>
+
+	<!-- Results -->
+	<div id="resultsArea" ng-cloak scrollable>
+		<div class="video" ng-repeat="video in videos" ng-cloak>
+			<div class="play" ng-click="playVideo(video)" >PLAY</div>
+      <img class="thumbnail" ng-src="https://i.ytimg.com/vi/{{video['id'].videoId}}/mqdefault.jpg">
+      <!-- Display the title and description of the video -->
+      <div class="infos">
+        <div class="title truncateLine">{{video['snippet'].title}}</div>
+        <div class="description" ng-bind-html="trustAsHtml(video['snippet'].description)"></div>
+        <div class="duration">{{0 | toHHMMSS}}</div>
+      </div>
+    </div>
+	</div>
+
+
+
+</div>
+
+</body>
+</html>
