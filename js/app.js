@@ -17,29 +17,6 @@ app.filter('toHHMMSS', [function () {
 		return time;
 	}}]);
 
-/**
- * Just put the "scrollable" attribute on a div to make it scrollable
- */
-app.directive('scrollable', [function() {
-	return {
-		link: function(scope, elem) {
-			elem.mCustomScrollbar({
-				scrollInertia: 0,
-				advanced:{
-					updateOnContentResize: true
-				},
-				callbacks:{
-					onTotalScrollOffset: 200,
-					//Load more results on total scroll
-					onTotalScroll:function(){
-						scope.searchVideos(false);
-					}
-				}
-			});
-		}
-	};
-}]);
-
 app.controller('MainCtrl',['$scope','$http','$sce', function ($scope,$http,$sce) {
 
 	//si 1 le video va etre lancé automatiquement , 0 si non
