@@ -12,6 +12,7 @@
 
 	<!-- mCustomScrollbar -->
 	<link rel="stylesheet" href="style/jquery.mCustomScrollbar.css" />
+	<link rel="stylesheet" href="style/bootstrap/bootstrap.min.css" />
 	<script src="js/librairies/jquery.mCustomScrollbar.min.js"></script>
 
   <!-- App related -->
@@ -40,15 +41,18 @@
 			<div id="menu" >
 				  <a href="#" class="action-button shadow animate red" ng-click="addToPlayList()">Add to playlist ></a>
 			</div>
-			<div id="playListArea" ng-cloak scrollable>
+
+			<ng-tabs class="playListArea" scrollable>
+				<ng-tab title="My playlist"  >
         		<div class="title truncateLine" ng-repeat="video in playlist">{{video['snippet'].title}} 
         			<div class="alert-close" ng-click="removefromPlaylist(video)">×</div>
         		</div>
-			</div>
+        </ng-tab>
+				<ng-tab title="My Lovelist" >
+					<li>my lovely song </li>
+					</ng-tab>
+			</ng-tabs>
 	</div>
-
-
-	<!-- download mp3	<a href="http://www.yt-mp3.com/watch?v=vCp5JLnd1Eo" onClick="return YoutubeMp3Script(this)">Download MP3</a> -->
 
 
 	<!-- Searchbar -->

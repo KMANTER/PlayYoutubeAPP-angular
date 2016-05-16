@@ -21,6 +21,39 @@ app.directive('scrollable', function() {
 	};
 });
 
-app.directive('userTabs', function () {
-    
+app.directive('ngTabs', function () {
+    return{
+		restrict : 'E',
+		scope: {},
+		transclude: true,
+		templateUrl : 'partials/tabs-tmpl.html',
+		controller: function ($scope) {
+			$scope.tabs = [];
+			this.add = function (tab) {
+				if($scope.tabs.length == 0)
+					$scope.select(tab);
+				$scope.tabs.push(tab);
+			}
+			$scope.select = function (tab) {
+				angular.forEach($scope.tabs, function (t) {
+					t.selected = false;
+				});
+				tab.selected = true;
+			}
+		}
+		
+	}
 });
+
+app.directive('ngTab', function () {
+	return{
+		restrict: 'E',
+		scope: {title :'@'},
+		transclude : true,
+		templateUrl: 'partials/tab-tmpl.html',
+		require : '^ngTabs',
+		link: function (scope, element, attrs, tabsCtrls) {
+			tabsCtrls.add(scope);
+		}
+	}
+})
