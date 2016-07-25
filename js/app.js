@@ -17,7 +17,7 @@ app.filter('toHHMMSS', [function () {
 		return time;
 	}}]);
 
-app.controller('MainCtrl',['$scope','$http','$sce', function ($scope,$http,$sce) {
+app.controller('MainCtrl',['$scope','$http','$sce', function MainCtrl($scope,$http,$sce) {
 
 	//si 1 le video va etre lancé automatiquement , 0 si non
 	var autoplay = 1;

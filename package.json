@@ -1,0 +1,39 @@
+{
+  "name": "playyoutubeapi",
+  "version": "1.0.0",
+  "description": "Petite application web en angularjs, pour recherche, jouer et créer des playlists avec des videos youtube EMBED",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KMANTER/PlayYoutubeAPP-angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KMANTER/PlayYoutubeAPP-angular/issues"
+  },
+  "homepage": "https://github.com/KMANTER/PlayYoutubeAPP-angular#readme",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8",
+    "chai": "^3.5.0",
+    "jQuery": "^1.7.4",
+    "jasmine-core": "^2.4.1",
+    "jquery": "^3.1.0",
+    "karma": "^1.1.1",
+    "karma-chai-sinon": "^0.1.5",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.0.4",
+    "karma-safari-launcher": "^1.0.0",
+    "mocha": "^2.5.3",
+    "phantomjs": "^2.1.7",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
+  }
+}
