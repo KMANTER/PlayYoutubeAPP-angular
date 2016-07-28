@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Mon Jul 25 2016 13:53:37 GMT+0200 (Paris, Madrid (heure d’été))
+// Generated on Thu Jul 28 2016 12:08:17 GMT+0200 (Paris, Madrid (heure d’été))
 
 module.exports = function(config) {
   config.set({
@@ -16,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'node_modules/angular/angular.js',
+      'node_modules/mocha/mocha.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'js/*.js',
       'js/directives/*.js',
@@ -33,12 +34,29 @@ module.exports = function(config) {
     preprocessors: {
     },
 
-
+    plugins: [
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-phantomjs-launcher',
+      'karma-chai',
+      'karma-mocha',
+      'diff',
+      'karma-mocha-reporter'
+    ],
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['mocha'],
-
+    mochaReporter: {
+      colors:{
+        success: 'Green',
+        info:'blue',
+        warning: 'yellow',
+        error:'Red'
+      },
+      showDiff: true
+    },
 
     // web server port
     port: 9876,
@@ -59,7 +77,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox'],
+    browsers: ['Chrome','Firefox','PhantomJS'],
 
 
     // Continuous Integration mode

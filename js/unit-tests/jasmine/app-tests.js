@@ -3,7 +3,7 @@ describe('Controller MainCtrl', function () {
     var $controller;
     var controller;  
     var $scope, $http, $sce;  
-    beforeEach(inject(function(_$controller_ ) {
+    beforeEach(inject(function(_$controller_) {
         $controller = _$controller_;
         $scope ={};$http ={};$sce ={};
         controller = $controller('MainCtrl' ,{$scope:$scope, $http:$http ,$sce:$sce});
@@ -12,6 +12,7 @@ describe('Controller MainCtrl', function () {
     describe('function addToPlaylist', function(){
        beforeEach(function(){   
          spyAddToPlayList = jasmine.createSpy('$scope.addToPlayList');
+         
        });
  
        it('should have a function addtoPlayList', function(){
@@ -44,7 +45,7 @@ describe('Controller MainCtrl', function () {
     });
     describe('function getvideoByUrl', function () {
       it('should not throw an exception', inject(function(){
-        expect($scope.getVideoUrl).not.toThrow();  
+        expect($scope.getVideoUrl).toThrow();  
       })); 
     });
 
